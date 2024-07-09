@@ -44,7 +44,7 @@ def sentiment_analysis(df, text_column='news'):
                 sentiment = analyze_sentiment(chunk_text, tokenizer_sentiment, model_sentiment)
                 chunk_sentiments.append(sentiment)
 
-            # Calculate the weighted sentiment
+            # Weighted scoring for sentiment
             sentiment_scores = {"positive": 1, "neutral": 0, "negative": -1}
             weighted_score = sum(chunk_weights[i] * sentiment_scores[sent] for i, sent in enumerate(chunk_sentiments))
             if weighted_score > 0.5:

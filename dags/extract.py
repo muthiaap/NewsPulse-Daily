@@ -70,7 +70,6 @@ def extract():
     yesterday = date.today() - timedelta(days=1)
 
     def get_query(site, company) -> str:
-        # return 'site:{} after:{yesterday} {}'.format(site, company)
         date_str = yesterday.strftime('%Y-%m-%d')
         return f"site:{site} after:{date_str} {company}"
 
@@ -114,11 +113,6 @@ def extract():
         url_parsed = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)['q'][0]
         url_collection.append(url_parsed)
     
-    # df = pd.DataFrame(url_collection)
-
-    # return df
-    
-    # Set the TOP_DIRECTORY to a valid temporary directory
     newspaper.settings.TOP_DIRECTORY = tempfile.gettempdir()
 
     # User agent and configuration for newspaper

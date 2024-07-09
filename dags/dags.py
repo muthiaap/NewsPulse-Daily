@@ -5,7 +5,7 @@ import logging
 from pipeline import ml_pipeline
 
 @dag(
-    schedule_interval='@daily',  # Adjust as necessary
+    schedule_interval='@daily', 
     start_date=days_ago(1),
     catchup=False,
     dag_id = 'dag_pipeline',

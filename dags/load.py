@@ -7,7 +7,6 @@ from datetime import date
 
 @task(task_id='Load')
 def load_to_postgresql(df, table_name = 'news_sentiments'):
-    # Add a date column with the current timestamp
     df['date'] = date.today() - timedelta(days=1)
 
     print("DataFrame content:\n", df)
