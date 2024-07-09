@@ -1,0 +1,22 @@
+[2024-07-09T07:44:51.176+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-09T07:44:51.357+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pipeline.Transformation manual__2024-07-09T07:44:22.167660+00:00 [queued]>
+[2024-07-09T07:44:51.391+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pipeline.Transformation manual__2024-07-09T07:44:22.167660+00:00 [queued]>
+[2024-07-09T07:44:51.392+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-09T07:44:51.454+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): Transformation> on 2024-07-09 07:44:22.167660+00:00
+[2024-07-09T07:44:51.476+0000] {standard_task_runner.py:63} INFO - Started process 7479 to run task
+[2024-07-09T07:44:51.484+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'dag_pipeline', 'Transformation', 'manual__2024-07-09T07:44:22.167660+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/dags.py', '--cfg-path', '/tmp/tmpwybkzgl4']
+[2024-07-09T07:44:51.494+0000] {standard_task_runner.py:91} INFO - Job 18: Subtask Transformation
+[2024-07-09T07:44:51.845+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_pipeline.Transformation manual__2024-07-09T07:44:22.167660+00:00 [running]> on host 0b120bf4a72c
+[2024-07-09T07:44:52.935+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='dag_pipeline' AIRFLOW_CTX_TASK_ID='Transformation' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T07:44:22.167660+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T07:44:22.167660+00:00'
+[2024-07-09T07:44:52.937+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-09T07:45:31.324+0000] {python.py:237} INFO - Done. Returned value was:                                                 news sentiment
+0  Iklan TEMPO.CO, Jakarta -PT Bank Negara Indone...  positive
+1  TEMPO.CO, Jakarta - PT Bank Negara Indonesia (...  positive
+2  Iklan TEMPO.CO, Jakarta - PT Bank Tabungan Neg...  negative
+3  Iklan TEMPO.CO, Jakarta - PT Bank Tabungan Neg...  positive
+4  Iklan TEMPO.CO, Jakarta - Dewan Perwakilan Rak...  positive
+[2024-07-09T07:45:31.335+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-09T07:45:31.605+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_pipeline, task_id=Transformation, run_id=manual__2024-07-09T07:44:22.167660+00:00, execution_date=20240709T074422, start_date=20240709T074451, end_date=20240709T074531
+[2024-07-09T07:45:31.728+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-09T07:45:31.844+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-09T07:45:31.849+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

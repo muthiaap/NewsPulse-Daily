@@ -1,0 +1,33 @@
+[2024-07-09T01:47:35.585+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-09T01:47:35.670+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pipeline.Load manual__2024-07-09T01:47:00.464124+00:00 [queued]>
+[2024-07-09T01:47:35.686+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pipeline.Load manual__2024-07-09T01:47:00.464124+00:00 [queued]>
+[2024-07-09T01:47:35.687+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-09T01:47:35.713+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): Load> on 2024-07-09 01:47:00.464124+00:00
+[2024-07-09T01:47:35.726+0000] {standard_task_runner.py:63} INFO - Started process 485 to run task
+[2024-07-09T01:47:35.730+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'dag_pipeline', 'Load', 'manual__2024-07-09T01:47:00.464124+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dags.py', '--cfg-path', '/tmp/tmpyxr44ots']
+[2024-07-09T01:47:35.731+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask Load
+[2024-07-09T01:47:35.933+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_pipeline.Load manual__2024-07-09T01:47:00.464124+00:00 [running]> on host 2a22a675a9f6
+[2024-07-09T01:47:36.558+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='dag_pipeline' AIRFLOW_CTX_TASK_ID='Load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T01:47:00.464124+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T01:47:00.464124+00:00'
+[2024-07-09T01:47:36.560+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-09T01:47:36.563+0000] {logging_mixin.py:188} INFO - DataFrame content:
+[2024-07-09T01:47:36.580+0000] {logging_mixin.py:188} INFO -                                                  news  ...                       date
+0  BNI Tokyo general manager Yudhi Zufrial (left)...  ... 2024-07-09 01:47:36.561940
+1  P T Bank Negara Indonesia (Persero) Tbk. conti...  ... 2024-07-09 01:47:36.561940
+2  (Left-to-Right) PLN president director Darmawa...  ... 2024-07-09 01:47:36.561940
+3  (Left to right) BNI international division vic...  ... 2024-07-09 01:47:36.561940
+4  BNI Hong Kong general manager Endah Tjahyani (...  ... 2024-07-09 01:47:36.561940
+5  Posing with the newly designed card, (left to ...  ... 2024-07-09 01:47:36.561940
+6  BNI prepared an initial assistance distributio...  ... 2024-07-09 01:47:36.561940
+7  BNI corporate banking 1 head I Made Sukajaya (...  ... 2024-07-09 01:47:36.561940
+
+[8 rows x 3 columns]
+[2024-07-09T01:47:36.582+0000] {logging_mixin.py:188} INFO - An error occurred: connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+[2024-07-09T01:47:36.582+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-07-09T01:47:36.583+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-09T01:47:36.647+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_pipeline, task_id=Load, run_id=manual__2024-07-09T01:47:00.464124+00:00, execution_date=20240709T014700, start_date=20240709T014735, end_date=20240709T014736
+[2024-07-09T01:47:36.707+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-09T01:47:36.773+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-09T01:47:36.777+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

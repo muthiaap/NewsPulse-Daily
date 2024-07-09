@@ -1,0 +1,10 @@
+beautifulsoup4==4.12.3
+newspaper3k==0.2.8
+numpy
+pandas
+tweet-preprocessor
+psycopg2-binary
+Requests==2.32.3
+torch
+transformers
+lxml[html_clean]

@@ -1,0 +1,63 @@
+[2024-07-04T10:43:47.762+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-04T10:43:47.790+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pipeline.Transformation manual__2024-07-04T10:43:32.882498+00:00 [queued]>
+[2024-07-04T10:43:47.799+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pipeline.Transformation manual__2024-07-04T10:43:32.882498+00:00 [queued]>
+[2024-07-04T10:43:47.800+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-04T10:43:47.814+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): Transformation> on 2024-07-04 10:43:32.882498+00:00
+[2024-07-04T10:43:47.828+0000] {standard_task_runner.py:63} INFO - Started process 132 to run task
+[2024-07-04T10:43:47.832+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_pipeline', 'Transformation', 'manual__2024-07-04T10:43:32.882498+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/dags.py', '--cfg-path', '/tmp/tmp6u7ug6dn']
+[2024-07-04T10:43:47.833+0000] {standard_task_runner.py:91} INFO - Job 18: Subtask Transformation
+[2024-07-04T10:43:47.888+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_pipeline.Transformation manual__2024-07-04T10:43:32.882498+00:00 [running]> on host 20b7669a223d
+[2024-07-04T10:43:48.084+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_pipeline' AIRFLOW_CTX_TASK_ID='Transformation' AIRFLOW_CTX_EXECUTION_DATE='2024-07-04T10:43:32.882498+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-04T10:43:32.882498+00:00'
+[2024-07-04T10:43:48.085+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-04T10:43:48.453+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-04T10:43:48.454+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/transform.py", line 10, in sentiment_analysis
+    tokenizer_sentiment = AutoTokenizer.from_pretrained("adhityaprimandhika/distillbert_sentiment_analysis")
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 826, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 658, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1221, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1335, in _hf_hub_download_to_cache_dir
+    os.makedirs(os.path.dirname(blob_path), exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/cache/models--adhityaprimandhika--distillbert_sentiment_analysis'
+[2024-07-04T10:43:48.469+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_pipeline, task_id=Transformation, run_id=manual__2024-07-04T10:43:32.882498+00:00, execution_date=20240704T104332, start_date=20240704T104347, end_date=20240704T104348
+[2024-07-04T10:43:48.486+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 18 for task Transformation ([Errno 13] Permission denied: '/opt/airflow/cache/models--adhityaprimandhika--distillbert_sentiment_analysis'; 132)
+[2024-07-04T10:43:48.527+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-04T10:43:48.561+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-04T10:43:48.568+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

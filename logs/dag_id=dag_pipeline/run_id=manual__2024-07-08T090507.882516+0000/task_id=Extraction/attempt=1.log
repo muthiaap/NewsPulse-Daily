@@ -1,0 +1,35 @@
+[2024-07-08T09:05:15.905+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-08T09:05:15.940+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pipeline.Extraction manual__2024-07-08T09:05:07.882516+00:00 [queued]>
+[2024-07-08T09:05:15.950+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pipeline.Extraction manual__2024-07-08T09:05:07.882516+00:00 [queued]>
+[2024-07-08T09:05:15.951+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-08T09:05:15.969+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): Extraction> on 2024-07-08 09:05:07.882516+00:00
+[2024-07-08T09:05:15.982+0000] {standard_task_runner.py:63} INFO - Started process 184 to run task
+[2024-07-08T09:05:15.985+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_pipeline', 'Extraction', 'manual__2024-07-08T09:05:07.882516+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/dags.py', '--cfg-path', '/tmp/tmph297c5ey']
+[2024-07-08T09:05:15.987+0000] {standard_task_runner.py:91} INFO - Job 69: Subtask Extraction
+[2024-07-08T09:05:16.055+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_pipeline.Extraction manual__2024-07-08T09:05:07.882516+00:00 [running]> on host 338dcb453384
+[2024-07-08T09:05:16.170+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_pipeline' AIRFLOW_CTX_TASK_ID='Extraction' AIRFLOW_CTX_EXECUTION_DATE='2024-07-08T09:05:07.882516+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-08T09:05:07.882516+00:00'
+[2024-07-08T09:05:16.172+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-08T09:05:16.173+0000] {extract.py:63} INFO - Starting news extraction process
+[2024-07-08T09:05:17.895+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/10/26/bni-tokyo-boosts-indonesian-diaspora-loans.html
+[2024-07-08T09:05:18.338+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/11/19/bni-pioneers-green-banking-to-encourage-sustainable-business.html
+[2024-07-08T09:05:18.570+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/09/09/bni-wins-four-awards-at-alpha-southeast-asia.html
+[2024-07-08T09:05:18.978+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/10/27/bni-collaborates-with-pln-to-promote-millennials-home-ownership.html
+[2024-07-08T09:05:19.361+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/08/11/bni-spices-up-hong-kong-market-at-food-expo-2022.html
+[2024-07-08T09:05:19.720+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/10/21/bni-targets-gen-z-and-millennials-with-bni-american-express-vibes-credit-card.html
+[2024-07-08T09:05:20.113+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/11/23/as-a-response-to-disaster-bni-and-bumn-collaborated-to-help-cianjur-residents.html
+[2024-07-08T09:05:20.466+0000] {extract.py:144} INFO - Successfully extracted article from http://www.thejakartapost.com/adv/2022/08/01/bni-channels-sustainability-linked-loans-worth-rp-1-42-trillion-with-japfa.html
+[2024-07-08T09:05:20.474+0000] {extract.py:151} INFO - News extraction process completed
+[2024-07-08T09:05:20.476+0000] {python.py:237} INFO - Done. Returned value was:                                                 news
+0  BNI Tokyo general manager Yudhi Zufrial (left)...
+1  P T Bank Negara Indonesia (Persero) Tbk. conti...
+2  (Left to right) BNI international division vic...
+3  (Left-to-Right) PLN president director Darmawa...
+4  BNI Hong Kong general manager Endah Tjahyani (...
+5  Posing with the newly designed card, (left to ...
+6  BNI prepared an initial assistance distributio...
+7  BNI corporate banking 1 head I Made Sukajaya (...
+[2024-07-08T09:05:20.506+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-08T09:05:21.017+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_pipeline, task_id=Extraction, run_id=manual__2024-07-08T09:05:07.882516+00:00, execution_date=20240708T090507, start_date=20240708T090515, end_date=20240708T090521
+[2024-07-08T09:05:21.086+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-08T09:05:21.128+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-08T09:05:21.133+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
