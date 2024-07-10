@@ -40,3 +40,7 @@ Dash/Plotly: For creating the interactive dashboard.
 3. Sentiment Analysis: The sentiment_analysis.py script performs sentiment analysis on the preprocessed data using a sentiment analysis model.
 4. Store Results: The sentiment analysis results are stored in a PostgreSQL/MySQL database using the database.py script.
 5. Visualize Data: The app.py and layout.py scripts in the dashboard/ directory create an interactive dashboard to visualize the sentiment analysis results.
+
+### Output
+![Dashboard 1](https://github.com/muthiaap/NewsPulse-Daily/assets/108161059/7430e101-db20-4022-bd51-d3013f3354e4)
+
