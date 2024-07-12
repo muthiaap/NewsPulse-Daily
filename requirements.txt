@@ -8,3 +8,4 @@ Requests==2.32.3
 torch
 transformers
 lxml[html_clean]
+wordcloud
