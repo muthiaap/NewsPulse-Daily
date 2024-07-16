@@ -17,6 +17,7 @@ from airflow.decorators import task
 
 @task(task_id = 'Extraction')
 def extract():
+    # giving list of sites that gonna be taken
     list_of_sites = [
         ('eco-business.com', 'en'),
         ('thejakartapost.com', 'en'),
@@ -57,6 +58,7 @@ def extract():
         ('bisnisnews.id', 'id'),
     ]
 
+    # the website and header
     GOOGLE = 'https://www.google.com/search'
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Cafari/537.36'}
 
@@ -73,7 +75,7 @@ def extract():
         date_str = yesterday.strftime('%Y-%m-%d')
         return f"site:{site} after:{date_str} {company}"
 
-    company = 'PT Bank Negara Indonesia (Persero) Tbk'
+    company = 'BBNI'
 
     # Set up retry strategy
     retry_strategy = Retry(
@@ -103,12 +105,14 @@ def extract():
             links = links[:MAX_ARTICLES]
             break
     
+    # collecting the URL
     url_collection = []
 
     for link in links:
         str_link = str(link)
         if str_link.find('/url?q=') == -1 or 'accounts.google.com' in str_link or 'support.google.com' in str_link:
             continue
+        # doing parse 
         url = str_link[str_link.find('/url?q='):str_link.find('>')]
         url_parsed = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)['q'][0]
         url_collection.append(url_parsed)
@@ -121,9 +125,9 @@ def extract():
     config.browser_user_agent = user_agent
     config.request_timeout = 60
 
-    # Text cleaner function
     p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.HASHTAG, p.OPT.RESERVED, p.OPT.SMILEY, p.OPT.URL)
 
+    # Text cleaner function
     def cleaner(text):
         text = re.sub("@[A-Za-z0-9]+", "", text)  # Remove @ sign
         text = text.replace("#", "").replace("_", "")  # Remove hashtag sign but keep the text
@@ -131,6 +135,7 @@ def extract():
         text = text.strip().replace("\n", "")
         return text
 
+    # take the text from all the sites
     news_text = []
 
     for url in url_collection:
@@ -151,6 +156,7 @@ def extract():
         except Exception as e:
             logging.error(f'Unexpected error processing article from {url}: {e}')
 
+    # create dataframe
     df = pd.DataFrame({'news': news_text})
     logging.info('News extraction process completed')
     

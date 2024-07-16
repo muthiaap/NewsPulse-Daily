@@ -10,6 +10,7 @@ def sentiment_analysis(df, text_column='news'):
     tokenizer_sentiment = AutoTokenizer.from_pretrained("saved_model")
     model_sentiment = AutoModelForSequenceClassification.from_pretrained("saved_model")
 
+    # using normal distribution to weighted scoring
     def get_chunk_weights(num_chunks):
         center = num_chunks / 2
         sigma = num_chunks / 4
@@ -32,6 +33,7 @@ def sentiment_analysis(df, text_column='news'):
         predicted_sentiment = labels[predicted_class]
         return predicted_sentiment
 
+    # sentiment result
     sentiments = []
     for text in df[text_column]:
         if isinstance(text, str):
@@ -58,5 +60,6 @@ def sentiment_analysis(df, text_column='news'):
         else:
             sentiments.append("neutral")  # Handle non-string entries
 
+    # create dataframe
     df['sentiment'] = sentiments
     return df
