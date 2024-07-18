@@ -8,7 +8,8 @@ from datetime import date
 @task(task_id='Load')
 def load_to_postgresql(df, table_name = 'news_sentiments'):
     # adding date for yesterday 
-    df['date'] = date.today() - timedelta(days=1) # pake date eksekusinya
+    df['date'] = date.today() - timedelta(days=1) 
+    
 
     print("DataFrame content:\n", df)
     
